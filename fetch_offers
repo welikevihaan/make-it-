@@ -1,0 +1,30 @@
+import streamlit as st
+import requests
+from bs4 import BeautifulSoup
+
+# Function to scrape or fetch offers (example placeholder)
+def fetch_offers(location):
+    # Placeholder: This is where you'd implement your web scraping or API fetching logic
+    # For now, let's return some mock data
+    return [
+        {"store": "Store A", "offer": "Buy one get one free", "item": "Apples"},
+        {"store": "Store B", "offer": "20% off", "item": "Bananas"},
+        {"store": "Store C", "offer": "Free delivery", "item": "All products"}
+    ]
+
+# Streamlit app layout
+st.title("Grocery Offers Tracker")
+
+# Input for location
+location = st.text_input("Enter your location", "")
+
+if location:
+    # Fetch and display offers based on the entered location
+    offers = fetch_offers(location)
+    st.subheader(f"Offers in {location}:")
+    
+    # Display offers
+    for offer in offers:
+        st.write(f"{offer['store']}: {offer['offer']} on {offer['item']}")
+
+# To run the app, save this script as `app.py` and use the command `streamlit run app.py`
